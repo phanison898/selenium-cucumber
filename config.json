@@ -1,6 +1,6 @@
 {
 	"browser": "chrome",
-	"url": "",
+	"url": "https://www.saucedemo.com/",
 	"headless": false,
 	"time_outs": {
 		"page_load": 30,
