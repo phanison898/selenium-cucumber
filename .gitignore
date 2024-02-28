@@ -9,3 +9,5 @@ target/
 
 # TestNG report files
 test-output/
+
+.vscode/
