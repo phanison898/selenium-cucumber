@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <!-- Configuration settings -->
+    <configuration>
+        <!-- Report theme: standard, dark, or standard-v4 -->
+        <theme>standard</theme>
+        
+        <!-- Document title -->
+        <documentTitle>Extent Reports - Test Automation Report</documentTitle>
+        
+        <!-- Report encoding -->
+        <encoding>UTF-8</encoding>
+        
+        <!-- Report name -->
+        <reportName>Test Automation Report</reportName>
+        
+        <!-- Chart visibility -->
+        <charts>true</charts>
+        
+        <!-- Automatically append test names to the document title -->
+        <autoCreateRelativePathMedia>true</autoCreateRelativePathMedia>
+        
+        <!-- Automatically append test names to the document title -->
+        <autoAppendTestNames>true</autoAppendTestNames>
+        
+        <!-- Display timeline charts for each test -->
+        <timelineEnabled>true</timelineEnabled>
+        
+        <!-- Append a unique timestamp to each test -->
+        <uniqueTimeStamp>false</uniqueTimeStamp>
+        
+        <!-- Specify the timestamp format -->
+        <timeStampFormat>yyyy-MM-dd HH:mm:ss</timeStampFormat>
+        
+        <!-- Replace user agent strings in the report -->
+        <userAgent>Custom User Agent String</userAgent>
+        
+        <!-- Replace project name in the report -->
+        <projectName>Project Name</projectName>
+        
+        <!-- Replace build number in the report -->
+        <buildNumber>1.0.0</buildNumber>
+    </configuration>
+
+    <!-- System information settings -->
+    <system-information>
+        <!-- Environment settings -->
+        <environment>
+            <!-- Define system environment variables -->
+            <parameter key="OS" value="Windows 10" />
+            <parameter key="Browser" value="Chrome" />
+            <!-- Add more parameters as needed -->
+        </environment>
+    </system-information>
+
+    <!-- Listeners -->
+    <listeners>
+        <!-- Add listeners here if needed -->
+    </listeners>
+</extentreports>
