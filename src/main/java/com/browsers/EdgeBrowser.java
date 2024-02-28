@@ -17,6 +17,10 @@ public class EdgeBrowser extends Base implements Driver<EdgeOptions> {
 			options.addArguments(option);
 		}
 
+		if (Config.getHeadLessMode()) {
+			options.addArguments("--headless");
+		}
+
 		options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
 
 		return options;

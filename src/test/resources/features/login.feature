@@ -1,6 +1,5 @@
 Feature: Login
 
-@unit
 Scenario: Check warning message when user enters only username
 	Given user opens sauce demo website
 	When user enters only username
@@ -17,9 +16,9 @@ Scenario: Check warning message when user enters neither username nor password
 	Given user opens sauce demo website
 	When clicks login button
 	Then "Username is required" warning should appear
-	
+
 Scenario: Check when user enters both username and password
 	Given user opens sauce demo website
-	When user enters username and password
+	When user enters correct username and password
 	And clicks login button
-	Then "Username is required" warning should appear
+	Then url should contains "inventory" string

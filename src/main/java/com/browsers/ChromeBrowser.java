@@ -17,6 +17,11 @@ public class ChromeBrowser extends Base implements Driver<ChromeOptions> {
 			options.addArguments(option);
 		}
 
+		if (Config.getHeadLessMode()) {
+			options.addArguments("--headless");
+			options.addArguments("--window-size=1920,1080");
+		}
+
 		options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
 
 		return options;

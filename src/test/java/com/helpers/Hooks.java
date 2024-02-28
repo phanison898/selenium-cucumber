@@ -1,5 +1,7 @@
 package com.helpers;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import com.base.Base;
@@ -51,7 +53,16 @@ public class Hooks extends Base {
 	}
 
 	@After
-	public void tearDown(Scenario s) {
+	public void tearDown(Scenario scenario) {
+
+		if (scenario.isFailed()) {
+
+			byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+
+			scenario.attach(screenshot, "image/png", "screenshot");
+
+		}
+
 		getDriver().close();
 		getDriver().quit();
 	}

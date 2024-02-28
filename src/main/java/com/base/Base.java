@@ -11,7 +11,7 @@ public class Base {
 
 	public Environment Env = new Environment();
 
-	private ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+	public static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>(); // public static must
 
 	public void setDriver(WebDriver _driver) {
 		driver.set(_driver);

@@ -16,6 +16,10 @@ public class FirefoxBrowser extends Base implements Driver<FirefoxOptions> {
 			options.addArguments(option);
 		}
 
+		if (Config.getHeadLessMode()) {
+			options.addArguments("--headless");
+		}
+
 		return options;
 	}
 
