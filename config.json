@@ -1,0 +1,19 @@
+{
+	"browser": "chrome",
+	"url": "",
+	"headless": false,
+	"time_outs": {
+		"page_load": 30,
+		"implicit": 5,
+		"explicit": 20,
+		"script_load": 20
+	},
+	"driver_options": [
+		"--start-maximized",
+		"--incognito",
+		"--disable-notifications",
+		"--disable-extensions",
+		"--ignore-certificate-errors",
+		"--disable-infobars"
+	]
+}
