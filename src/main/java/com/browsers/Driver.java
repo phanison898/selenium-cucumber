@@ -4,26 +4,30 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 
+import com.config.JsonConfig;
+
 public interface Driver<T> {
 
-    T options(); // driver options
+	T options(); // driver options
 
-    WebDriver driver(); // actual driver creation
+	WebDriver driver(); // actual driver creation
 
-    default WebDriver init() { // driver initialization
+	default WebDriver init() { // driver initialization
 
-        WebDriver driver = driver();
+		JsonConfig config = new JsonConfig();
 
-        driver.manage().window().maximize();
+		WebDriver driver = driver();
 
-        driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
 
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(0));
+		driver.manage().deleteAllCookies();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(config.getPageLoadTime()));
 
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(0));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(config.getImplicitTime()));
 
-        return driver;
-    }
+		driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(config.getScriptLoadTime()));
+
+		return driver;
+	}
 }

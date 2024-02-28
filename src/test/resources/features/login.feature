@@ -1,5 +1,6 @@
 Feature: Login
 
+@unit
 Scenario: Check warning message when user enters only username
 	Given user opens sauce demo website
 	When user enters only username

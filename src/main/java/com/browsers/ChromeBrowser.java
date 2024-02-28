@@ -1,20 +1,30 @@
 package com.browsers;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class ChromeBrowser implements Driver<ChromeOptions> {
+import com.base.Base;
+
+public class ChromeBrowser extends Base implements Driver<ChromeOptions> {
 
 	@Override
 	public ChromeOptions options() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'options'");
+
+		ChromeOptions options = new ChromeOptions();
+
+		for (String option : Config.getDriverOptions()) {
+			options.addArguments(option);
+		}
+
+		options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
+
+		return options;
 	}
 
 	@Override
 	public WebDriver driver() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'driver'");
+		return new ChromeDriver(options());
 	}
 
 }

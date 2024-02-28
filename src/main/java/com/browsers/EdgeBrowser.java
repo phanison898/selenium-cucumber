@@ -1,20 +1,30 @@
 package com.browsers;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
-public class EdgeBrowser implements Driver<EdgeOptions> {
+import com.base.Base;
+
+public class EdgeBrowser extends Base implements Driver<EdgeOptions> {
 
 	@Override
 	public EdgeOptions options() {
-		// TODO Auto-generated method stub
-		return null;
+
+		EdgeOptions options = new EdgeOptions();
+
+		for (String option : Config.getDriverOptions()) {
+			options.addArguments(option);
+		}
+
+		options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
+
+		return options;
 	}
 
 	@Override
 	public WebDriver driver() {
-		// TODO Auto-generated method stub
-		return null;
+		return new EdgeDriver(options());
 	}
 
 }
