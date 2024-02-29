@@ -49,7 +49,7 @@ public class JsonConfig extends Paths {
 	}
 
 	public String getBrowser() {
-		return jo.get("browser").getAsString();
+		return System.getProperty("browser") != null ? System.getProperty("browser") : jo.get("browser").getAsString();
 	}
 
 	public String getURL() {
@@ -57,7 +57,8 @@ public class JsonConfig extends Paths {
 	}
 
 	public boolean getHeadLessMode() {
-		return jo.get("headless").getAsBoolean();
+		return System.getProperty("headless") != null ? System.getProperty("browser") == "true"
+				: jo.get("headless").getAsBoolean();
 	}
 
 	public long getPageLoadTime() {
