@@ -1,4 +1,4 @@
-package com.helpers;
+package com.hooks;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -14,7 +14,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class Hooks extends Base {
+public class ScenarioHook extends Base {
 
 	WebDriver driver;
 
@@ -22,14 +22,11 @@ public class Hooks extends Base {
 	public void setup(Scenario s) {
 		
 		try {
-			
 			selectBrowser();
 			
 		} catch (NoSuchBrowserException e) {
 			e.printStackTrace();
 		}
-
-		getDriver().get(Config.getURL());
 
 	}
 

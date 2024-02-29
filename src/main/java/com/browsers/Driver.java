@@ -4,7 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 
-import com.config.JsonConfig;
+import com.base.Base;
 
 public interface Driver<T> {
 
@@ -14,19 +14,17 @@ public interface Driver<T> {
 
 	default WebDriver init() { // driver initialization
 
-		JsonConfig config = new JsonConfig();
-
 		WebDriver driver = driver();
 
 		driver.manage().window().maximize();
 
 		driver.manage().deleteAllCookies();
 
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(config.getPageLoadTime()));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Base.Config.getPageLoadTime()));
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(config.getImplicitTime()));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Base.Config.getImplicitTime()));
 
-		driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(config.getScriptLoadTime()));
+		driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(Base.Config.getScriptLoadTime()));
 
 		return driver;
 	}

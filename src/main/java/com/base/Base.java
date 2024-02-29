@@ -7,9 +7,9 @@ import com.config.JsonConfig;
 
 public class Base {
 
-	public JsonConfig Config = new JsonConfig();
+	public static JsonConfig Config;
 
-	public Environment Env = new Environment();
+	public static Environment Env;
 
 	public static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>(); // public static must
 

@@ -18,6 +18,8 @@ public class LoginStepDefinition extends WebActions {
 
 		loginPage = new LoginPage();
 
+		getDriver().get(Config.getURL());
+
 		Assert.assertEquals(getDriver().getTitle(), "Swag Labs");
 	}
 

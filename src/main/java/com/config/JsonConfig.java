@@ -2,6 +2,7 @@ package com.config;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,14 +24,27 @@ public class JsonConfig extends Paths {
 		FileReader fr = null;
 
 		try {
+
 			fr = new FileReader(JSON_CONFIG_FILE);
+
+			jo = gson.fromJson(fr, JsonObject.class);
+
+			timeoutsJO = jo.get("time_outs").getAsJsonObject();
+
 		} catch (FileNotFoundException e) {
+
 			e.printStackTrace();
+
+		} finally {
+
+			if (fr != null) {
+				try {
+					fr.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-
-		jo = gson.fromJson(fr, JsonObject.class);
-
-		timeoutsJO = jo.get("time_outs").getAsJsonObject();
 
 	}
 
@@ -63,15 +77,15 @@ public class JsonConfig extends Paths {
 	}
 
 	public List<String> getDriverOptions() {
-		
+
 		List<String> list = new ArrayList<String>();
-		
+
 		JsonArray ja = jo.get("driver_options").getAsJsonArray();
-		
+
 		for (JsonElement e : ja) {
 			list.add(e.getAsString());
 		}
-		
+
 		return list;
 	}
 
