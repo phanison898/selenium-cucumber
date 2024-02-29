@@ -22,7 +22,9 @@ public class Hooks extends Base {
 	public void setup(Scenario s) {
 		
 		try {
+			
 			selectBrowser();
+			
 		} catch (NoSuchBrowserException e) {
 			e.printStackTrace();
 		}
