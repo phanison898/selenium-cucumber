@@ -5,6 +5,7 @@
 	<groupId>com.phanison</groupId>
 	<artifactId>selenium-cucumber</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
 	<properties>
 		<test.suite.name>testng.xml</test.suite.name>
@@ -82,6 +83,20 @@
 						<!-- TestNG suite XML files -->
 						<suiteXmlFile>${test.suite.name}</suiteXmlFile>
 					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.4.0</version>
+				<configuration>
+					<webResources>
+						<!-- Include the test-output folder -->
+						<resource>
+							<directory>${project.basedir}/extent-reports</directory>
+							<targetPath>extent-reports</targetPath>
+						</resource>
+					</webResources>
 				</configuration>
 			</plugin>
 		</plugins>
