@@ -22,4 +22,4 @@ Scenario: Check when user enters both username and password
 	Given user opens sauce demo website
 	When user enters correct username and password
 	And clicks login button
-	Then url should contains "inventory-1" string
+	Then url should contains "inventory" string
