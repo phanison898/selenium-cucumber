@@ -1,8 +1,12 @@
 package com.browsers;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.base.Base;
 
@@ -30,6 +34,10 @@ public class ChromeBrowser extends Base implements Driver<ChromeOptions> {
 	@Override
 	public WebDriver driver() {
 		return new ChromeDriver(options());
+	}
+	
+	public void browser() throws MalformedURLException {
+		WebDriver rwd = new RemoteWebDriver(new URL(""), null);
 	}
 
 }
