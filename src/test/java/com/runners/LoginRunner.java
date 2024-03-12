@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = { "classpath:features" }, glue = { "classpath:com.stepDefinitions",
 		"classpath:com.hooks" }, plugin = {
-				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, tags = "@SmokeTests")
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, tags = "@spring")
 public class LoginRunner extends AbstractTestNGCucumberTests {
 
 }

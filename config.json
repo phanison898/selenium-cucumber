@@ -1,6 +1,6 @@
 {
 	"browser": "chrome",
-	"url": "https://www.saucedemo.com/",
+	"url": "http://localhost:8081/",
 	"headless": true,
 	"time_outs": {
 		"page_load": 30,
